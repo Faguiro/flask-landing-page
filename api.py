@@ -1,22 +1,23 @@
-from flask import Flask
+from flask import Flask, render_template
 from time import time, ctime, strftime, localtime
 import locale
 locale.setlocale(locale.LC_ALL, 'pt_BR.UTF-8')
-app = Flask(__name__, static_folder='../build', static_url_path='/')
+app = Flask(__name__, static_folder='build',
+            static_url_path='/', template_folder='build')
 
 
 @app.route('/')
 def index():
-    return app.send_static_file('index.html')
+    return render_template('index.html')
 
 
-@app.route('/api/time')
+@app.route('/time')
 def get_current_time():
     t = time()
     return {'time': strftime('%c', localtime())}
     return {'time': ctime(t)}
 
 
-@app.route('/api/content')
+@app.route('/content')
 def content():
     return {'content': 'https://www.linkedin.com/in/faguiro/'}
