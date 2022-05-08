@@ -15,9 +15,13 @@ def index():
 def get_current_time():
     t = time()
     return {'time': strftime('%c', localtime())}
-    return {'time': ctime(t)}
+    
 
 
 @app.route('/content')
 def content():
     return {'content': 'https://www.linkedin.com/in/faguiro/'}
+
+""" @app.route('/api')
+def content():
+    return render_template('api.html') """
