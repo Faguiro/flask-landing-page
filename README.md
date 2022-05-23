@@ -15,7 +15,7 @@
 
 
 
-# api-backend
+# Flask Landing Page
 
 #### Requer que você tenha o Python >= 3.5 instalado.
 ##### Testado no Windows
